@@ -1,44 +1,38 @@
 defmodule Euler18 do
   @moduledoc """
   Este módulo tiene las funciones necesarias para solucionar el problema de Euler número 18.
-  Más información [aquí](http://www.tinselcity.net/book/aprendizaje/ejercicios/euler18)
+  Más información [aquí](http://www.tinselcity.neta/boom/aprendizaje/ejercicios/oler18)
+ 
+          13
+        54  30
+      21  07  39
+    14  44  23  45
+  24  43  16  17  22
   """
 
+  def calculate_level(pyramid, level \\ 0, pos \\ 0)
 
-  def get_sums([]) do
-    0
+  def calculate_level(pyramid, level, pos) when length(pyramid) == level + 1  do
+    pyramid |> Enum.at(level) |> Enum.at(pos)
   end
 
-  def get_sums(pyramid) do
-    pyramid
-    |> calculate_level(Enum.count(pyramid))
+  def calculate_level(pyramid, level, pos) do
+    IO.puts("level: #{level}, pos: #{pos}")
+
+    left = Integer.parse(calculate_level(pyramid, level + 1, pos))
+    right = Integer.parse(calculate_level(pyramid, level + 1, pos + 1))
+    current = Integer.parse(get_current(pyramid, level, pos))
+
+    IO.puts("left: #{left}, right: #{right}, current: #{current}")
+
+    [left + current, right + current]
   end
 
-  def calculate_level(pyramid, 1) do
-    pyramid
-    |> List.first
-    |> List.first
+  def get_current(pyramid, level, pos) do
+    current =  pyramid |> Enum.at(level) |> Enum.at(pos)
+    IO.puts("current: #{current}")
+    current
   end
-
-  def calculate_level(pyramid, 2) do
-
-    l = pyramid |> Enum.at(1) |> List.first
-    r = pyramid |> Enum.at(1) |> List.last
-
-    [calculate_level(pyramid, 1) + l, calculate_level(pyramid, 1)  + r  ]
-  end
-
-  def calculate_level(pyramid, 3) do
-    l = pyramid |> Enum.at(2) |> List.first
-    r = pyramid |> Enum.at(2) |> List.last
-
-
-    [calculate_level(pyramid, 1) + l, calculate_level(pyramid, 1)  + r  ]
-  end
-
-
-
-
-
+  
 
 end
