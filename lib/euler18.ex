@@ -10,29 +10,27 @@ defmodule Euler18 do
   24  43  16  17  22
   """
 
-  def calculate_level(pyramid, level \\ 0, pos \\ 0)
-
-  def calculate_level(pyramid, level, pos) when length(pyramid) == level + 1  do
-    pyramid |> Enum.at(level) |> Enum.at(pos)
+  def max_path(pyramid) do
+    calculate_level(pyramid)
   end
 
-  def calculate_level(pyramid, level, pos) do
-    IO.puts("level: #{level}, pos: #{pos}")
+  def calculate_level(pyramid, level \\ 0, pos \\ 0, acc \\ [])
 
-    left = Integer.parse(calculate_level(pyramid, level + 1, pos))
-    right = Integer.parse(calculate_level(pyramid, level + 1, pos + 1))
-    current = Integer.parse(get_current(pyramid, level, pos))
-
-    IO.puts("left: #{left}, right: #{right}, current: #{current}")
-
-    [left + current, right + current]
+  def calculate_level(pyramid, level, pos, acc) when length(pyramid) == level + 1 do
+   current = pyramid |> Enum.at(level) |> Enum.at(pos)
+   [current | acc]
   end
 
-  def get_current(pyramid, level, pos) do
-    current =  pyramid |> Enum.at(level) |> Enum.at(pos)
-    IO.puts("current: #{current}")
-    current
-  end
+  def calculate_level(pyramid, level, pos, acc) do
+    current = pyramid |> Enum.at(level) |> Enum.at(pos)
+
+    left = calculate_level(pyramid, level + 1, pos, [current | acc])
+    right = calculate_level(pyramid, level + 1, pos + 1, [current | acc])
   
 
+  end
+
+
+
+ 
 end
