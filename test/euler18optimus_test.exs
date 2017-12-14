@@ -1,6 +1,6 @@
-defmodule Euler18Test do
+defmodule Euler18OptimusTest do
   use ExUnit.Case
-  doctest Euler18
+  doctest Euler18Optimus
 
   test "Una pirámide de 3 niveles devuelve el resultado correcto" do
 
@@ -47,6 +47,7 @@ defmodule Euler18Test do
 
 
   defp assert_test(pyramid, expected) do    
-    assert  Euler18.get_max_path(pyramid) == expected
+    assert  Euler18Optimus.get_max_path(pyramid) == expected
   end
+
 end
