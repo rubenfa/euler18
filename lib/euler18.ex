@@ -9,6 +9,7 @@ defmodule Euler18 do
       21  07  39
     14  44  23  45
   24  43  16  17  22
+
   """
 
   def get_max_path(pyramid, level \\ 0, pos \\ 0)
