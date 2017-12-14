@@ -1,7 +1,7 @@
 defmodule Euler18Optimus do
   @moduledoc """
   Este módulo tiene las funciones necesarias para solucionar el problema de Euler número 18.
-  Más información [aquí](http://www.tinselcity.neta/boom/aprendizaje/ejercicios/oler18)
+  Más información [aquí](http://www.tinselcity.net/book/aprendizaje/ejercicios/euler18)
   
           13
         54  30

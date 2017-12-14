@@ -1,5 +1,16 @@
 defmodule Euler18 do
 
+  @moduledoc """
+  Este módulo tiene las funciones necesarias para solucionar el problema de Euler número 18.
+  Más información [aquí](http://www.tinselcity.net/book/aprendizaje/ejercicios/euler18)
+  
+          13
+        54  30
+      21  07  39
+    14  44  23  45
+  24  43  16  17  22
+  """
+
   def get_max_path(pyramid, level \\ 0, pos \\ 0)
 
   def get_max_path(pyramid, level, pos) when length(pyramid) == level + 1 do
